@@ -1,0 +1,14 @@
+# Site settings
+title: Jay Ravaliya
+email: jayrav13@gmail.com
+description: "Aspiring Software Engineer."
+baseurl: ""
+url: "jayravaliya.com"
+twitter_username: jayrav13
+github_username:  jayrav13
+linkedin_username: jayrav13
+email: jayrav13@gmail.com
+
+# Build settings
+markdown: kramdown
+permalink: pretty

@@ -1,0 +1,32 @@
+<p>I like the quick draft section of WP - I’ll start using this to keep my posts short :).</p>
+
+<p>Haven’t posted in a while, but here’s where I’m at - I now have two apps, written in Swift, on the Apple App Store. Both could use a lot of work, but I took a break to check out Python. As of this moment, I’m not opinionated on the religious “Down with PHP” conversations, but I definitely like Python a lot so far. It feels a bit quicker, has a LOT of easy libraries to import and seems to be more popular. </p>
+
+<p>Once I knocked out my <a href="https://github.com/jayrav13/njit-course-scraper">first Python project</a>, I was excited to start working with Python/Flask, because I’ll be honest: Ruby on Rails came off as overwhelming initially. Python/Flask felt like a perfect start.</p>
+
+<p>Look at how easy it is to set up your Python/Flask application:</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># app.py</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+	<span class="k">return</span> <span class="s">&quot;Hello, world!&quot;</span></code></pre></div>
+
+<p>And there you have it! By installing your dependencies ahead of time (by executing <code>pip install flask</code>), you can paste this into a file called <code>app.py</code>, run <code>python app.py</code>, visit <code>localhost:5000</code> and see “Hello, world!” in your browser (or via cURL request). </p>
+
+<p>And adding a new route:</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/new&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">new</span><span class="p">():</span>
+	<span class="k">return</span> <span class="s">&quot;Here is my new route!&quot;</span></code></pre></div>
+
+<p>Not too bad! With a few simple lines,  you can set up your first Python application!</p>
+
+<p><em>Note: This post was previously written on my Wordpress blog.</em></p>
+
+<p>Jay</p>
