@@ -5,9 +5,9 @@
     <description>Aspiring Software Engineer.</description>
     <link>jayravaliya.com/</link>
     <atom:link href="jayravaliya.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 10 Feb 2016 23:49:56 -0500</pubDate>
-    <lastBuildDate>Wed, 10 Feb 2016 23:49:56 -0500</lastBuildDate>
-    <generator>Jekyll v2.2.0</generator>
+    <pubDate>Thu, 18 Aug 2016 19:46:56 -0700</pubDate>
+    <lastBuildDate>Thu, 18 Aug 2016 19:46:56 -0700</lastBuildDate>
+    <generator>Jekyll v3.0.2</generator>
     
       <item>
         <title>What I learned from Midloc</title>
@@ -27,7 +27,7 @@
 
 &lt;ul&gt;
   &lt;li&gt;Started with Parse backend, managed with Parse’s iOS SDK.&lt;/li&gt;
-  &lt;li&gt;Wrote a small Python/Flask API to retrieve zip codes and hosted it on &lt;a href=&quot;https://www.heroku.com&quot;&gt;Heroku&lt;/a&gt;.  &lt;/li&gt;
+  &lt;li&gt;Wrote a small Python/Flask API to retrieve zip codes and hosted it on &lt;a href=&quot;https://www.heroku.com&quot;&gt;Heroku&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;Integrated Google Geocoding API into the Python/Flask backend, moved everything to Linode.&lt;/li&gt;
   &lt;li&gt;Moved the Google Places API from iOS to backend, eliminating multiple requests from the iOS device and thus creating a TRUE backend!&lt;/li&gt;
 &lt;/ul&gt;
@@ -37,7 +37,7 @@
 &lt;p&gt;If you have any questions about my experience, please do reach out! Also check out the GitHub repos for &lt;a href=&quot;https://github.com/jayrav13/midloc&quot;&gt;Midloc iOS&lt;/a&gt; and &lt;a href=&quot;https://github.com/jayrav13/midloc-api&quot;&gt;Midloc API&lt;/a&gt;. Finally, check out Midloc on the &lt;a href=&quot;https://itunes.apple.com/us/app/midloc/id1001946180&quot;&gt;iTunes App Store&lt;/a&gt;!&lt;/p&gt;
 
 </description>
-        <pubDate>Fri, 11 Sep 2015 00:43:00 -0400</pubDate>
+        <pubDate>Fri, 11 Sep 2015 00:43:00 -0700</pubDate>
         <link>jayravaliya.com/programming/2015/09/11/what-I-learned-from-midloc/</link>
         <guid isPermaLink="true">jayravaliya.com/programming/2015/09/11/what-I-learned-from-midloc/</guid>
         
@@ -48,25 +48,25 @@
     
       <item>
         <title>Python/Flask API + Security</title>
-        <description>&lt;p&gt;Over the last few weeks, my main focus has not only been to learn Python, but to also understand Python/Flask in the more general context of web frameworks. The peak of my experience with it thus far happened recently, when I realized the power of Flask when it comes to building REST API’s. Thanks to &lt;a href=&quot;http://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask&quot;&gt;Miguel Grinberg’s Designing a RESTful API with Python and Flask&lt;/a&gt;, I was able to recognize that what once seemed like such a simple concept actually is. &lt;/p&gt;
+        <description>&lt;p&gt;Over the last few weeks, my main focus has not only been to learn Python, but to also understand Python/Flask in the more general context of web frameworks. The peak of my experience with it thus far happened recently, when I realized the power of Flask when it comes to building REST API’s. Thanks to &lt;a href=&quot;http://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask&quot;&gt;Miguel Grinberg’s Designing a RESTful API with Python and Flask&lt;/a&gt;, I was able to recognize that what once seemed like such a simple concept actually is.&lt;/p&gt;
 
 &lt;p&gt;Working with the JSON output of a RESTful API is one of the first experiences I (and many newcomers to web programming) had, and I remember thinking “it just looks like a GET request with a hefty payload that’s then processed and a result is being returned as JSON - but it can’t be that simple, can it?” Turns out, it can be!&lt;/p&gt;
 
 &lt;p&gt;But Miguel covers that better than I can, go check it out! What I want to outline is a question that &lt;a href=&quot;https://www.linkedin.com/in/leeweisberger&quot;&gt;Lee Weisberger&lt;/a&gt; had for me when I built an API for Midloc*. In building it, I also created an endpoint via which potential users can register for the service. Here’s a sample cURL request (note - password means/does nothing at the moment, so no need to use a real password):&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl -i &lt;span class=&quot;s2&quot;&gt;&amp;quot;http://midloc.jayravaliya.com/api/register&amp;quot;&lt;/span&gt; -d &lt;span class=&quot;s2&quot;&gt;&amp;quot;email=midlocapp@gmail.com&amp;amp;password=iheartmidloc&amp;quot;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;curl -i &lt;span class=&quot;s2&quot;&gt;&quot;http://midloc.jayravaliya.com/api/register&quot;&lt;/span&gt; -d &lt;span class=&quot;s2&quot;&gt;&quot;email=midlocapp@gmail.com&amp;amp;password=iheartmidloc&quot;&lt;/span&gt;
 
-HTTP/1.1 &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; OK
-Date: Thu, &lt;span class=&quot;m&quot;&gt;13&lt;/span&gt; Aug &lt;span class=&quot;m&quot;&gt;2015&lt;/span&gt; 15:54:21 GMT
+HTTP/1.1 200 OK
+Date: Thu, 13 Aug 2015 15:54:21 GMT
 Server: Apache/2.4.10 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Ubuntu&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 Content-Length: 146
 Connection: close
 Content-Type: application/json
 
 &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Success&amp;quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&amp;quot;midlocapp@gmail.com registered under access key d059c2afdb53f80e5dc8366e02339468&amp;quot;&lt;/span&gt;, 
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;access_key&amp;quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&amp;quot;d059c2afdb53f80e5dc8366e02339468&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;Success&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;midlocapp@gmail.com registered under access key d059c2afdb53f80e5dc8366e02339468&quot;&lt;/span&gt;, 
+  &lt;span class=&quot;s2&quot;&gt;&quot;access_key&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;d059c2afdb53f80e5dc8366e02339468&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Lee was already ahead of me though - &lt;em&gt;What if I wrote a script to constantly register random email addresses? How does your system currently handle that?&lt;/em&gt;&lt;/p&gt;
 
@@ -74,20 +74,20 @@ Content-Type: application/json
 
 &lt;p&gt;My approach was to use MySQL to store the IP Address of any incoming request to monitor it when future requests come in. Using SQLAlchemy, I created a Register object that maps to a MySQL database:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mysql&amp;gt; show columns in register&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;mysql&amp;gt; &lt;/span&gt;show columns &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;register;
 +------------------+-------------+------+-----+---------+----------------+
-&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; Field            &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; Type        &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; Null &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; Key &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; Default &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; Extra          &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;
+| Field            | Type        | Null | Key | Default | Extra          |
 +------------------+-------------+------+-----+---------+----------------+
-&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; id               &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; int&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;11&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; NO   &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; PRI &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; NULL    &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; auto_increment &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; ip               &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; varchar&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;15&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; YES  &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; NULL    &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;                &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; datetime         &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; varchar&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;64&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; YES  &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; NULL    &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;                &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; legal_register   &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; int&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;11&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; NO   &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;       &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;                &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; illegal_register &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; int&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;11&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; NO   &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;       &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;                &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;
+| id               | int&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;11&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;     | NO   | PRI | NULL    | auto_increment |
+| ip               | varchar&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;15&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; | YES  |     | NULL    |                |
+| datetime         | varchar&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;64&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; | YES  |     | NULL    |                |
+| legal_register   | int&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;11&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;     | NO   |     | 0       |                |
+| illegal_register | int&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;11&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;     | NO   |     | 0       |                |
 +------------------+-------------+------+-----+---------+----------------+
-&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt; rows in &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.01 sec&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+5 rows &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.01 sec&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;__tablename__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;register&amp;quot;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;__tablename__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;register&quot;&lt;/span&gt;
 
         &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;primary_key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;ip&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -99,36 +99,36 @@ Content-Type: application/json
                 &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ip&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ip&lt;/span&gt;
                 &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;
                 &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;illegal_register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-                &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legal_register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+                &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legal_register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Thanks to SQLAlchemy, I can now create a Register object, let’s say… &lt;/p&gt;
+&lt;p&gt;Thanks to SQLAlchemy, I can now create a Register object, let’s say…&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remote_addr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remote_addr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;…where &lt;code&gt;request.remote_addr&lt;/code&gt; is the IP Address and &lt;code&gt;time.time()&lt;/code&gt; is the number of seconds since the epoch. I can add that object to the database by saying &lt;code&gt;db.session.add(register)&lt;/code&gt; and &lt;code&gt;db.session.commit()&lt;/code&gt;. So then, I can treat a row of data as an object and manipulate it accordingly, and SQLAlchemy handles converting that into SQL statements that make MySQL happy. Awesome!&lt;/p&gt;
+&lt;p&gt;…where &lt;code class=&quot;highlighter-rouge&quot;&gt;request.remote_addr&lt;/code&gt; is the IP Address and &lt;code class=&quot;highlighter-rouge&quot;&gt;time.time()&lt;/code&gt; is the number of seconds since the epoch. I can add that object to the database by saying &lt;code class=&quot;highlighter-rouge&quot;&gt;db.session.add(register)&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;db.session.commit()&lt;/code&gt;. So then, I can treat a row of data as an object and manipulate it accordingly, and SQLAlchemy handles converting that into SQL statements that make MySQL happy. Awesome!&lt;/p&gt;
 
-&lt;p&gt;Here’s the thing - the IP Address may have visited my site before. As such, I can create an object using a query by saying something like… &lt;/p&gt;
+&lt;p&gt;Here’s the thing - the IP Address may have visited my site before. As such, I can create an object using a query by saying something like…&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Register&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ip&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remote_addr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Register&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ip&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remote_addr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;…which in layman’s terms will retrieve the first row of data in the register table where the IP Address matches my incoming IP Address. And just like before, I can now manipulate &lt;code&gt;register&lt;/code&gt; like an object!&lt;/p&gt;
+&lt;p&gt;…which in layman’s terms will retrieve the first row of data in the register table where the IP Address matches my incoming IP Address. And just like before, I can now manipulate &lt;code class=&quot;highlighter-rouge&quot;&gt;register&lt;/code&gt; like an object!&lt;/p&gt;
 
-&lt;p&gt;Now, if my logic determines that a new row needs to be created (i.e. this IP Address has not visited yet), I’ll let them register right away - by definition they’re not abusing the system. What about a returning IP Address? For them, I can compare &lt;code&gt;time.time()&lt;/code&gt; to the previously set &lt;code&gt;register.datetime&lt;/code&gt;, which is the column in which their LAST visit’s time will be stored. As long as &lt;code&gt;time.time() - register.datetime &amp;gt; 60.0&lt;/code&gt;, sure they can register again! All I’ll do now is say…&lt;/p&gt;
+&lt;p&gt;Now, if my logic determines that a new row needs to be created (i.e. this IP Address has not visited yet), I’ll let them register right away - by definition they’re not abusing the system. What about a returning IP Address? For them, I can compare &lt;code class=&quot;highlighter-rouge&quot;&gt;time.time()&lt;/code&gt; to the previously set &lt;code class=&quot;highlighter-rouge&quot;&gt;register.datetime&lt;/code&gt;, which is the column in which their LAST visit’s time will be stored. As long as &lt;code class=&quot;highlighter-rouge&quot;&gt;time.time() - register.datetime &amp;gt; 60.0&lt;/code&gt;, sure they can register again! All I’ll do now is say…&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legal_register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legal_register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legal_register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legal_register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;…which will reset the last time visited and increment the number of legal access keys they’ve generated.&lt;/p&gt;
 
-&lt;p&gt;But, if &lt;code&gt;time.time() - register.datetime &amp;lt;= 60.0&lt;/code&gt;, I’ll return with an HTTP 400 response, stating that they need to wait 60 seconds before they can register again. With this approach, any infinite script can only touch my MySQL database every 60 seconds at most, which I’m ok with. I’ll make sure to increment…&lt;/p&gt;
+&lt;p&gt;But, if &lt;code class=&quot;highlighter-rouge&quot;&gt;time.time() - register.datetime &amp;lt;= 60.0&lt;/code&gt;, I’ll return with an HTTP 400 response, stating that they need to wait 60 seconds before they can register again. With this approach, any infinite script can only touch my MySQL database every 60 seconds at most, which I’m ok with. I’ll make sure to increment…&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;illegal_register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;illegal_register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;illegal_register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;illegal_register&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;…to keep track of who’s trying to abuse my system!&lt;/p&gt;
 
 &lt;p&gt;And in layman’s terms, there you have it! A simplistic, but working, and for a small scale does the trick just fine. How about for a larger scale? I would imagine that for a larger scale, approaches involving sessions and cookies could do the trick - give the user a “handstamp”, so to speak, when they send a request so that you could compare their next request to their own cookie. The opportunity to scale up dramatically increases because you no longer have to rely on the performance of the MySQL database for everyone, but rather just the performance of one’s computer retrieving a cookie.&lt;/p&gt;
 
-&lt;p&gt;This project is available on &lt;a href=&quot;https://github.com/jayrav13/midloc-api&quot;&gt;GitHub&lt;/a&gt;. Let me know what you think I can do better!  &lt;/p&gt;
+&lt;p&gt;This project is available on &lt;a href=&quot;https://github.com/jayrav13/midloc-api&quot;&gt;GitHub&lt;/a&gt;. Let me know what you think I can do better!&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;em&gt;&lt;a href=&quot;https://itunes.apple.com/us/app/id1001946180&quot;&gt;Midloc&lt;/a&gt; is a super simple iOS app that I’ve been working on to learn concepts of both backend and iOS development. Lee made the Android version!&lt;/em&gt;&lt;/li&gt;
@@ -136,7 +136,7 @@ Content-Type: application/json
 
 &lt;p&gt;Jay&lt;/p&gt;
 </description>
-        <pubDate>Thu, 13 Aug 2015 11:22:00 -0400</pubDate>
+        <pubDate>Thu, 13 Aug 2015 11:22:00 -0700</pubDate>
         <link>jayravaliya.com/python/2015/08/13/python-flask-api-and-security/</link>
         <guid isPermaLink="true">jayravaliya.com/python/2015/08/13/python-flask-api-and-security/</guid>
         
@@ -149,13 +149,13 @@ Content-Type: application/json
         <title>Welcome to the NEW jayravaliya.com!</title>
         <description>&lt;p&gt;Welcome to my first blog post on my new website! Very excited to have my new hosting on Linode up and running with Jekyll’s awesome site generator. Setting up a VPS was an awesome learning experience for me, even though thanks to Linode’s documentation it only took the better part of an afternoon to put together. More to come on that, but until then, I need to make this a canonical first post:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hello, world!&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Sure, why not get started with Ruby?&lt;/p&gt;
 
 &lt;p&gt;Jay&lt;/p&gt;
 </description>
-        <pubDate>Tue, 04 Aug 2015 07:36:00 -0400</pubDate>
+        <pubDate>Tue, 04 Aug 2015 04:36:00 -0700</pubDate>
         <link>jayravaliya.com/first/post/2015/08/04/first-post/</link>
         <guid isPermaLink="true">jayravaliya.com/first/post/2015/08/04/first-post/</guid>
         
@@ -170,30 +170,30 @@ Content-Type: application/json
         <title>First Python/Flask Application</title>
         <description>&lt;p&gt;I like the quick draft section of WP - I’ll start using this to keep my posts short :).&lt;/p&gt;
 
-&lt;p&gt;Haven’t posted in a while, but here’s where I’m at - I now have two apps, written in Swift, on the Apple App Store. Both could use a lot of work, but I took a break to check out Python. As of this moment, I’m not opinionated on the religious “Down with PHP” conversations, but I definitely like Python a lot so far. It feels a bit quicker, has a LOT of easy libraries to import and seems to be more popular. &lt;/p&gt;
+&lt;p&gt;Haven’t posted in a while, but here’s where I’m at - I now have two apps, written in Swift, on the Apple App Store. Both could use a lot of work, but I took a break to check out Python. As of this moment, I’m not opinionated on the religious “Down with PHP” conversations, but I definitely like Python a lot so far. It feels a bit quicker, has a LOT of easy libraries to import and seems to be more popular.&lt;/p&gt;
 
 &lt;p&gt;Once I knocked out my &lt;a href=&quot;https://github.com/jayrav13/njit-course-scraper&quot;&gt;first Python project&lt;/a&gt;, I was excited to start working with Python/Flask, because I’ll be honest: Ruby on Rails came off as overwhelming initially. Python/Flask felt like a perfect start.&lt;/p&gt;
 
 &lt;p&gt;Look at how easy it is to set up your Python/Flask application:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;# app.py&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;# app.py&lt;/span&gt;
 
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;flask&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Flask&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Flask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;debug&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
 
-&lt;span class=&quot;nd&quot;&gt;@app.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@app.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;/&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Hello, world!&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;And there you have it! By installing your dependencies ahead of time (by executing &lt;code&gt;pip install flask&lt;/code&gt;), you can paste this into a file called &lt;code&gt;app.py&lt;/code&gt;, run &lt;code&gt;python app.py&lt;/code&gt;, visit &lt;code&gt;localhost:5000&lt;/code&gt; and see “Hello, world!” in your browser (or via cURL request). &lt;/p&gt;
+&lt;p&gt;And there you have it! By installing your dependencies ahead of time (by executing &lt;code class=&quot;highlighter-rouge&quot;&gt;pip install flask&lt;/code&gt;), you can paste this into a file called &lt;code class=&quot;highlighter-rouge&quot;&gt;app.py&lt;/code&gt;, run &lt;code class=&quot;highlighter-rouge&quot;&gt;python app.py&lt;/code&gt;, visit &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:5000&lt;/code&gt; and see “Hello, world!” in your browser (or via cURL request).&lt;/p&gt;
 
 &lt;p&gt;And adding a new route:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;nd&quot;&gt;@app.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;/new&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;nd&quot;&gt;@app.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;/new&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Here is my new route!&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Here is my new route!&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Not too bad! With a few simple lines,  you can set up your first Python application!&lt;/p&gt;
 
@@ -201,7 +201,7 @@ Content-Type: application/json
 
 &lt;p&gt;Jay&lt;/p&gt;
 </description>
-        <pubDate>Wed, 29 Jul 2015 16:41:25 -0400</pubDate>
+        <pubDate>Wed, 29 Jul 2015 13:41:25 -0700</pubDate>
         <link>jayravaliya.com/python/2015/07/29/python-first-application/</link>
         <guid isPermaLink="true">jayravaliya.com/python/2015/07/29/python-first-application/</guid>
         
