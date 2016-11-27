@@ -16,8 +16,11 @@
             </span>
         {% endif %}
 
-        <h1 class="title">{{ site.name }}</h1>
-        <h2 class="description">{{ site.bio }}</h2>
+        {% assign split_name = site.name | split: ' ' %}
+        <h1 class="title"><span style=" color: red ">{{ split_name[0] }}</span> <span>{{ split_name[1] }}</span></h1>
+
+        {% assign split_bio = site.bio | split: ' ' %}
+        <h2 class="description"><span style=" color: black ">{{ split_bio[0] }}</span> <span style=" color: red ">{{ split_bio[1] }} {{ split_bio[2] }}</span></h2>
 
         {% include social-links.html %}
     </header>
