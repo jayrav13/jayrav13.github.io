@@ -5,6 +5,32 @@ title: Projects
 
 <section class="list">
 
+    <!-- projects -->
+
+    <div class="header-home">
+        <h2 style=" font-size: 24px; color: black " class="description">{{ site.data.projects.projects.name }}</h2>
+    </div>
+
+    {% for project in site.data.projects.projects.content %}
+
+    <div class="item">
+        <a class="url">
+            <h3 class="title">{{ project.name }} </h3>
+            <aside> Test </aside>
+        </a>
+        <div style=" font-weight: 50px; ">
+
+            {% capture links_size %}{{ project.links | size }}{% endcapture %}
+
+            {% for link in project.links %}
+                <a style=" color: gray; text-decoration: none " href="{{ link.link }}" target="_BLANK"><small>{{ link.name }}</small></a>{% if forloop.last == false %},{% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+
+    {% endfor %}
+
     <!-- hackathons -->
 
     <div class="header-home">
@@ -14,7 +40,7 @@ title: Projects
     {% for project in site.data.projects.hackathons.content %}
 
     <div class="item">
-        <a class="url" href="{{ project.link }}">
+        <a class="url" href="{{ project.link }}" target="_BLANK">
             <h3 class="title">{{ project.name }} <small style=" color: gray ">{{ project.hackathon.name }}</small> </h3>
             <aside>{{ project.hackathon.date.month }} {{ project.hackathon.date.year }}</aside>
         </a>

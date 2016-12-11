@@ -1,4 +1,139 @@
 {
+    "projects": {
+        "name": "Projects",
+        "content": [
+            {
+                "name": "NJIT API",
+                "links": [
+                    {
+                        "name": "GitHub",
+                        "link": "https://github.com/jayrav13/njit-api"
+                    }
+                ],
+                "dates": {
+                    "from": "August 2016",
+                    "to": "present"
+                }
+            },
+            {
+                "name": "presidency",
+                "links": [
+                    {
+                        "name": "GitHub",
+                        "link": "https://github.com/jayrav13/presidency"
+                    },
+                    {
+                        "name": "PyPI",
+                        "link": "https://pypi.python.org/pypi/presidency"
+                    }
+                ]
+            },
+            {
+                "name": "ical_dict",
+                "links": [
+                    {
+                        "name": "GitHub",
+                        "link": "https://github.com/jayrav13/ical_dict"
+                    },
+                    {
+                        "name": "PyPI",
+                        "link": "https://pypi.python.org/pypi/ical_dict"
+                    }
+                ]
+            },
+            {
+                "name": "NJ Transit Scraper",
+                "links": [
+                    {
+                        "name": "GitHub",
+                        "link": "https://github.com/jayrav13/NJ-Transit"
+                    }
+                ]
+            },
+            {
+                "name": "NJ Fuel Up",
+                "links": [
+                    {
+                        "name": "GitHub",
+                        "link": "https://github.com/jayrav13/njdot-fuelup"
+                    }
+                ]
+            },
+            {
+                "name": "Cat Tax",
+                "links": [
+                    {
+                        "name": "GitHub",
+                        "link": "https://github.com/jayrav13/cat-tax"
+                    }
+                ]
+            },
+            {
+                "name": "Location Locker",
+                "links": [
+                    {
+                        "name": "GitHub",
+                        "link": "https://github.com/jayrav13/location-locker"
+                    }
+                ]
+            },
+            {
+                "name": "Events at NJIT",
+                "links": [
+                    {
+                        "name": "iOS",
+                        "link": "https://github.com/jayrav13/njit-events-app"
+                    },
+                    {
+                        "name": "API",
+                        "link": "https://github.com/jayrav13/njit-events-api"
+                    }
+                ]
+            },
+            {
+                "name": "Python Flask Boilerplate Framework",
+                "links": [
+                    {
+                        "name": "GitHub",
+                        "link": "https://github.com/jayrav13/jr-flask-boilerplate"
+                    }
+                ]
+            },
+            {
+                "name": "Twilio Numbers Contest",
+                "links": [
+                    {
+                        "name": "GitHub",
+                        "link": "https://github.com/jayrav13/twilio-number-contest"
+                    }
+                ]
+            },
+            {
+                "name": "Midloc (iOS)",
+                "links": [
+                    {
+                        "name": "iOS",
+                        "link": "https://github.com/jayrav13/midloc"
+                    },
+                    {
+                        "name": "API",
+                        "link": "https://github.com/jayrav13/midloc-api"
+                    }
+                ],
+            },
+            {
+                "name": "NJIT Course Scraper",
+                "links": [
+                    {
+                        "name": "GitHub",
+                        "link": "https://github.com/jayrav13/njit-course-scraper"
+                    }
+                ],
+            }
+        ]
+    },
+    "academia": [],
+    "talks": [],
     "hackathons": {
         "name": "Hackathons",
         "content": [
