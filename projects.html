@@ -2,15 +2,24 @@
 layout: page
 title: Projects
 ---
+
 <section class="list">
-    {% for post in site.posts %}
-        {% if post.projects %}
-            <div class="item {% if post.star %}star{% endif %}">
-                <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
-                    <aside><time datetime="{{ post.date | date:"%d-%m-%Y" }}">{{ post.date | date: "%b %d %Y" }}</time></aside>
-                    {{ post.jemoji }}<h3 class="title">{{ post.title }}</h3>
-                </a>
-            </div>
-        {% endif %}
+
+    <!-- hackathons -->
+
+    <div class="header-home">
+        <h2 style=" font-size: 24px; color: black " class="description">{{ site.data.projects.hackathons.name }}</h2>
+    </div>
+
+    {% for project in site.data.projects.hackathons.content %}
+
+    <div class="item">
+        <a class="url" href="{{ project.link }}">
+            <h3 class="title">{{ project.name }} <small style=" color: gray ">{{ project.hackathon.name }}</small> </h3>
+            <aside>{{ project.hackathon.date.month }} {{ project.hackathon.date.year }}</aside>
+        </a>
+    </div>
+
     {% endfor %}
+
 </section>

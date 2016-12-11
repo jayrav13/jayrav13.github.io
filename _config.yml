@@ -75,7 +75,7 @@ width: large
 # paginate_path: "blog/:num/"
 
 # if you don't need projects, about or blog, comment them out.
-# projects: true
+projects: true
 about: true
 # blog: true
 
