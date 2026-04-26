@@ -1,0 +1,46 @@
+---
+// Site-owner identity block at the top of the home page.
+// Inline social links — small, muted, no icons-as-decoration.
+const socials = [
+  { label: 'GitHub', url: 'https://github.com/jayrav13' },
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/jayrav13/' },
+  { label: 'Email', url: 'mailto:jayrav13@gmail.com' },
+];
+---
+<section class="hero">
+  <h1 class="name">Jay Ravaliya</h1>
+  <p class="tagline">Software engineer. I build with AI and write about it.</p>
+  <p class="socials">
+    {socials.map((s, i) => (
+      <>
+        {i > 0 && <span class="sep"> · </span>}
+        <a href={s.url}>{s.label}</a>
+      </>
+    ))}
+  </p>
+</section>
+
+<style>
+  .hero { margin-bottom: 48px; }
+  .name {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  .tagline {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin: 0 0 18px;
+  }
+  .socials {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .socials a { color: var(--text-muted); }
+  .socials a:hover { color: var(--accent); }
+  .sep { color: var(--label); }
+</style>
