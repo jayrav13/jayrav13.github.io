@@ -20,22 +20,22 @@
 
 **Files:** none modified yet; we create the branch we'll work on.
 
-- [ ] **Step 1: Confirm clean working tree**
+- [x] **Step 1: Confirm clean working tree**
 
   Run: `git status`
   Expected: `nothing to commit, working tree clean` (apart from any uncommitted memory files outside the repo).
 
-- [ ] **Step 2: Create and switch to `redesign` branch**
+- [x] **Step 2: Create and switch to `redesign` branch**
 
   Run: `git checkout -b redesign`
   Expected: `Switched to a new branch 'redesign'`
 
-- [ ] **Step 3: Sanity-check the spec is readable**
+- [x] **Step 3: Sanity-check the spec is readable**
 
   Run: `head -30 docs/superpowers/specs/2026-04-25-site-redesign-design.md`
   Expected: shows the spec header through the "Decisions at a glance" table.
 
-- [ ] **Step 4: No commit yet** — branch creation alone doesn't need one.
+- [x] **Step 4: No commit yet** — branch creation alone doesn't need one.
 
 ---
 
@@ -47,7 +47,7 @@ We scaffold into a temp dir (Astro's installer wants an empty target) then move 
 - Create: `package.json`, `tsconfig.json`, `astro.config.mjs`, `src/`, `public/`, `.gitignore` (extended)
 - Other existing files unchanged
 
-- [ ] **Step 1: Scaffold Astro in a temp directory**
+- [x] **Step 1: Scaffold Astro in a temp directory**
 
   Run:
   ```bash
@@ -59,19 +59,19 @@ We scaffold into a temp dir (Astro's installer wants an empty target) then move 
 
   If your `npm create astro@latest` version rejects the `--yes` flag, drop it and answer the two prompts manually (it will ask whether to install deps and init git — say no to both).
 
-- [ ] **Step 2: Verify the scaffold structure**
+- [x] **Step 2: Verify the scaffold structure**
 
   Run: `ls -la /tmp/jay-astro-scaffold`
   Expected: shows the files listed above. Sanity-check `package.json` mentions `"astro": "^5.x"`.
 
-- [ ] **Step 3: Rename the existing repo `package.json` so it doesn't conflict**
+- [x] **Step 3: Rename the existing repo `package.json` so it doesn't conflict**
 
   The current repo has a Jekyll-era `package.json`. Move it aside; we'll delete it in the cleanup task.
   ```bash
   mv package.json _legacy_package.json
   ```
 
-- [ ] **Step 4: Copy scaffold files into the repo root**
+- [x] **Step 4: Copy scaffold files into the repo root**
 
   ```bash
   cp /tmp/jay-astro-scaffold/package.json .
@@ -90,7 +90,7 @@ We scaffold into a temp dir (Astro's installer wants an empty target) then move 
   rm -rf public_astro
   ```
 
-- [ ] **Step 5: Append Astro-specific entries to `.gitignore`**
+- [x] **Step 5: Append Astro-specific entries to `.gitignore`**
 
   Open `.gitignore` and ensure these lines are present (append if missing):
   ```
@@ -106,17 +106,17 @@ We scaffold into a temp dir (Astro's installer wants an empty target) then move 
   .env.production
   ```
 
-- [ ] **Step 6: Install dependencies**
+- [x] **Step 6: Install dependencies**
 
   Run: `npm install`
   Expected: completes without errors. `node_modules/` and `package-lock.json` appear.
 
-- [ ] **Step 7: Verify dev server boots**
+- [x] **Step 7: Verify dev server boots**
 
   Run: `npm run dev` (foreground; Ctrl+C after verifying)
   Expected: prints `Local: http://localhost:4321/`. Open it in a browser; you should see Astro's default minimal page. This proves the scaffold works.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
   ```bash
   git add .gitignore package.json package-lock.json tsconfig.json astro.config.mjs src public _legacy_package.json
@@ -134,14 +134,14 @@ Set Astro's config to the right site URL, output mode, and add the plugins liste
 - Modify: `package.json` (add deps)
 - Modify: `tsconfig.json` (verify strict)
 
-- [ ] **Step 1: Install required packages**
+- [x] **Step 1: Install required packages**
 
   ```bash
   npm install @astrojs/sitemap @astrojs/rss @fontsource-variable/source-serif-4
   ```
   Expected: all three install. `package.json` `dependencies` now includes them.
 
-- [ ] **Step 2: Replace `astro.config.mjs` with this content**
+- [x] **Step 2: Replace `astro.config.mjs` with this content**
 
   ```js
   // @ts-check
@@ -167,7 +167,7 @@ Set Astro's config to the right site URL, output mode, and add the plugins liste
   });
   ```
 
-- [ ] **Step 3: Confirm `tsconfig.json` extends Astro's strict preset**
+- [x] **Step 3: Confirm `tsconfig.json` extends Astro's strict preset**
 
   It should contain at minimum:
   ```json
@@ -179,12 +179,12 @@ Set Astro's config to the right site URL, output mode, and add the plugins liste
   ```
   If the scaffold differs, replace its content with the above.
 
-- [ ] **Step 4: Verify config compiles**
+- [x] **Step 4: Verify config compiles**
 
   Run: `npm run build`
   Expected: `Server built in …`, `Complete!`. (The minimal scaffold has at least an `index.astro`, so the build should produce `dist/index.html`.) If it errors, fix before continuing.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
   ```bash
   git add astro.config.mjs tsconfig.json package.json package-lock.json
@@ -201,14 +201,14 @@ Define the typed shape of `posts` and `projects` collections (and the optional `
 - Create: `src/content.config.ts`
 - Create directories: `src/content/posts/` (empty for now), `src/content/projects/` (empty for now)
 
-- [ ] **Step 1: Create empty content directories with `.gitkeep`**
+- [x] **Step 1: Create empty content directories with `.gitkeep`**
 
   ```bash
   mkdir -p src/content/posts src/content/projects
   touch src/content/posts/.gitkeep src/content/projects/.gitkeep
   ```
 
-- [ ] **Step 2: Create `src/content.config.ts`**
+- [x] **Step 2: Create `src/content.config.ts`**
 
   ```ts
   import { defineCollection, z } from 'astro:content';
@@ -249,12 +249,12 @@ Define the typed shape of `posts` and `projects` collections (and the optional `
   export const collections = { posts, projects, now };
   ```
 
-- [ ] **Step 3: Verify schemas type-check**
+- [x] **Step 3: Verify schemas type-check**
 
   Run: `npm run build`
   Expected: build succeeds. (No content yet, so no validation runs — but the config must parse.)
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
   ```bash
   git add src/content.config.ts src/content/posts/.gitkeep src/content/projects/.gitkeep
@@ -272,7 +272,7 @@ Vanilla CSS with custom properties. Light + dark palettes per spec, swapped via 
 - Create: `src/styles/global.css`
 - Create: `src/styles/prose.css`
 
-- [ ] **Step 1: Create `src/styles/theme.css`**
+- [x] **Step 1: Create `src/styles/theme.css`**
 
   ```css
   /* Editorial palette — warm cream paper / warm off-black.
@@ -323,7 +323,7 @@ Vanilla CSS with custom properties. Light + dark palettes per spec, swapped via 
   }
   ```
 
-- [ ] **Step 2: Create `src/styles/global.css`**
+- [x] **Step 2: Create `src/styles/global.css`**
 
   ```css
   @import '@fontsource-variable/source-serif-4';
@@ -395,7 +395,7 @@ Vanilla CSS with custom properties. Light + dark palettes per spec, swapped via 
   }
   ```
 
-- [ ] **Step 3: Create `src/styles/prose.css` for article body styling**
+- [x] **Step 3: Create `src/styles/prose.css` for article body styling**
 
   ```css
   /* Used inside post and project bodies. */
@@ -453,12 +453,12 @@ Vanilla CSS with custom properties. Light + dark palettes per spec, swapped via 
   .prose a { color: var(--accent); }
   ```
 
-- [ ] **Step 4: Verify CSS compiles** (will be exercised via BaseLayout in next task)
+- [x] **Step 4: Verify CSS compiles** (will be exercised via BaseLayout in next task)
 
   Run: `npm run build`
   Expected: still succeeds. CSS files aren't yet imported anywhere, so no visible effect.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
   ```bash
   git add src/styles
@@ -474,7 +474,7 @@ The HTML skeleton wrapping every page. Includes the inline pre-paint theme scrip
 **Files:**
 - Create: `src/layouts/BaseLayout.astro`
 
-- [ ] **Step 1: Create `src/layouts/BaseLayout.astro`**
+- [x] **Step 1: Create `src/layouts/BaseLayout.astro`**
 
   ```astro
   ---
@@ -534,9 +534,9 @@ The HTML skeleton wrapping every page. Includes the inline pre-paint theme scrip
   </html>
   ```
 
-- [ ] **Step 2: Build won't pass yet** because Header and Footer don't exist. Don't run build until Task 7 completes.
+- [x] **Step 2: Build won't pass yet** because Header and Footer don't exist. Don't run build until Task 7 completes.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
   ```bash
   git add src/layouts/BaseLayout.astro
@@ -554,7 +554,7 @@ Three small components used by every page.
 - Create: `src/components/ThemeToggle.astro`
 - Create: `src/components/Footer.astro`
 
-- [ ] **Step 1: Create `src/components/ThemeToggle.astro`**
+- [x] **Step 1: Create `src/components/ThemeToggle.astro`**
 
   ```astro
   ---
@@ -631,7 +631,7 @@ Three small components used by every page.
   </script>
   ```
 
-- [ ] **Step 2: Create `src/components/Header.astro`**
+- [x] **Step 2: Create `src/components/Header.astro`**
 
   ```astro
   ---
@@ -668,7 +668,7 @@ Three small components used by every page.
   </style>
   ```
 
-- [ ] **Step 3: Create `src/components/Footer.astro`**
+- [x] **Step 3: Create `src/components/Footer.astro`**
 
   ```astro
   ---
@@ -699,7 +699,7 @@ Three small components used by every page.
   </style>
   ```
 
-- [ ] **Step 4: Replace the scaffold's `src/pages/index.astro` with a smoke-test page** so we can verify the layout renders.
+- [x] **Step 4: Replace the scaffold's `src/pages/index.astro` with a smoke-test page** so we can verify the layout renders.
 
   ```astro
   ---
@@ -711,7 +711,7 @@ Three small components used by every page.
   </BaseLayout>
   ```
 
-- [ ] **Step 5: Verify dev server**
+- [x] **Step 5: Verify dev server**
 
   Run: `npm run dev`
   Open `http://localhost:4321`. Expected:
@@ -723,12 +723,12 @@ Three small components used by every page.
 
   Ctrl+C to stop.
 
-- [ ] **Step 6: Verify build**
+- [x] **Step 6: Verify build**
 
   Run: `npm run build`
   Expected: `Complete!`. `dist/index.html` exists.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
   ```bash
   git add src/components src/pages/index.astro
@@ -747,7 +747,7 @@ Build the four content components the home page composes: Hero, NowBlock, Writin
 - Create: `src/components/WritingList.astro`
 - Create: `src/components/ProjectList.astro`
 
-- [ ] **Step 1: Create `src/components/Hero.astro`**
+- [x] **Step 1: Create `src/components/Hero.astro`**
 
   ```astro
   ---
@@ -800,7 +800,7 @@ Build the four content components the home page composes: Hero, NowBlock, Writin
 
   Note: The social URLs above are placeholders pulled from the existing site's `_config.yml`. If any are wrong, fix them in this file — they're hardcoded by design (not enough churn to warrant a config file).
 
-- [ ] **Step 2: Create `src/components/NowBlock.astro`**
+- [x] **Step 2: Create `src/components/NowBlock.astro`**
 
   ```astro
   ---
@@ -837,7 +837,7 @@ Build the four content components the home page composes: Hero, NowBlock, Writin
 
   No extra dependencies — Astro renders the markdown natively.
 
-- [ ] **Step 3: Create `src/components/WritingList.astro`**
+- [x] **Step 3: Create `src/components/WritingList.astro`**
 
   ```astro
   ---
@@ -910,7 +910,7 @@ Build the four content components the home page composes: Hero, NowBlock, Writin
   </style>
   ```
 
-- [ ] **Step 4: Create `src/components/ProjectList.astro`**
+- [x] **Step 4: Create `src/components/ProjectList.astro`**
 
   ```astro
   ---
@@ -988,12 +988,12 @@ Build the four content components the home page composes: Hero, NowBlock, Writin
   </style>
   ```
 
-- [ ] **Step 5: Verify build (no content yet → all sections render empty/null)**
+- [x] **Step 5: Verify build (no content yet → all sections render empty/null)**
 
   Run: `npm run build`
   Expected: build succeeds. Sections won't render (no content yet) — that's fine.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
   ```bash
   git add src/components
@@ -1009,7 +1009,7 @@ Replace the smoke-test home page with the real composition.
 **Files:**
 - Modify: `src/pages/index.astro`
 
-- [ ] **Step 1: Replace `src/pages/index.astro` content**
+- [x] **Step 1: Replace `src/pages/index.astro` content**
 
   ```astro
   ---
@@ -1030,7 +1030,7 @@ Replace the smoke-test home page with the real composition.
   </BaseLayout>
   ```
 
-- [ ] **Step 2: Verify with dev server**
+- [x] **Step 2: Verify with dev server**
 
   Run: `npm run dev`
   Open `http://localhost:4321`. Expected:
@@ -1042,12 +1042,12 @@ Replace the smoke-test home page with the real composition.
 
   This proves the conditional rendering works. Migration tasks add content.
 
-- [ ] **Step 3: Verify build**
+- [x] **Step 3: Verify build**
 
   Run: `npm run build`
   Expected: `Complete!`. `dist/index.html` shows the hero with no list sections.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
   ```bash
   git add src/pages/index.astro
@@ -1064,7 +1064,7 @@ Dynamic route generating one page per post.
 - Create: `src/layouts/ArticleLayout.astro`
 - Create: `src/pages/posts/[slug].astro`
 
-- [ ] **Step 1: Create `src/layouts/ArticleLayout.astro`**
+- [x] **Step 1: Create `src/layouts/ArticleLayout.astro`**
 
   ```astro
   ---
@@ -1119,7 +1119,7 @@ Dynamic route generating one page per post.
   </style>
   ```
 
-- [ ] **Step 2: Create `src/pages/posts/[slug].astro`**
+- [x] **Step 2: Create `src/pages/posts/[slug].astro`**
 
   ```astro
   ---
@@ -1203,12 +1203,12 @@ Dynamic route generating one page per post.
   </style>
   ```
 
-- [ ] **Step 3: Verify build (no posts yet → no routes generated)**
+- [x] **Step 3: Verify build (no posts yet → no routes generated)**
 
   Run: `npm run build`
   Expected: `Complete!`. No `dist/posts/` dir (collection is empty).
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
   ```bash
   git add src/layouts/ArticleLayout.astro src/pages/posts/
@@ -1224,7 +1224,7 @@ Same shape as posts, but routes only emit when `hasPage: true`.
 **Files:**
 - Create: `src/pages/projects/[slug].astro`
 
-- [ ] **Step 1: Create `src/pages/projects/[slug].astro`**
+- [x] **Step 1: Create `src/pages/projects/[slug].astro`**
 
   ```astro
   ---
@@ -1287,12 +1287,12 @@ Same shape as posts, but routes only emit when `hasPage: true`.
   </style>
   ```
 
-- [ ] **Step 2: Verify build**
+- [x] **Step 2: Verify build**
 
   Run: `npm run build`
   Expected: `Complete!`. Still no routes (no projects yet, and even when added, only `hasPage: true` ones get pages).
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
   ```bash
   git add src/pages/projects/
@@ -1310,7 +1310,7 @@ Infrastructure files. Sitemap is already wired up via the integration (Task 3). 
 - Create: `src/pages/404.astro`
 - Move: `robots.txt` → `public/robots.txt`
 
-- [ ] **Step 1: Create `src/pages/rss.xml.ts`**
+- [x] **Step 1: Create `src/pages/rss.xml.ts`**
 
   ```ts
   import rss from '@astrojs/rss';
@@ -1337,7 +1337,7 @@ Infrastructure files. Sitemap is already wired up via the integration (Task 3). 
   }
   ```
 
-- [ ] **Step 2: Create `src/pages/404.astro`**
+- [x] **Step 2: Create `src/pages/404.astro`**
 
   ```astro
   ---
@@ -1350,7 +1350,7 @@ Infrastructure files. Sitemap is already wired up via the integration (Task 3). 
   </BaseLayout>
   ```
 
-- [ ] **Step 3: Move `robots.txt` to `public/`**
+- [x] **Step 3: Move `robots.txt` to `public/`**
 
   ```bash
   mkdir -p public
@@ -1365,18 +1365,18 @@ Infrastructure files. Sitemap is already wired up via the integration (Task 3). 
   Sitemap: https://jayravaliya.com/sitemap-index.xml
   ```
 
-- [ ] **Step 4: Verify build**
+- [x] **Step 4: Verify build**
 
   Run: `npm run build`
   Then: `ls dist`
   Expected files include: `index.html`, `404.html`, `rss.xml`, `sitemap-index.xml`, `sitemap-0.xml`, `robots.txt`.
 
-- [ ] **Step 5: Spot-check RSS**
+- [x] **Step 5: Spot-check RSS**
 
   Run: `head -20 dist/rss.xml`
   Expected: a valid `<rss>` document, with no `<item>` elements yet (no posts).
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
   ```bash
   git add src/pages/rss.xml.ts src/pages/404.astro public/robots.txt
@@ -1394,12 +1394,12 @@ The 3 existing posts use Jekyll's Liquid `{% highlight LANG %}…{% endhighlight
 - Create: `src/content/posts/<slug>.md` × 3
 - Delete after run: `scripts/migrate-posts.mjs`
 
-- [ ] **Step 1: Inspect the source files**
+- [x] **Step 1: Inspect the source files**
 
   Run: `ls _posts/`
   Expected: 3 `.markdown` files plus `.gitkeep`. Confirm.
 
-- [ ] **Step 2: Create `scripts/migrate-posts.mjs`**
+- [x] **Step 2: Create `scripts/migrate-posts.mjs`**
 
   ```js
   // One-shot: convert _posts/*.markdown → src/content/posts/<slug>.md
@@ -1507,7 +1507,7 @@ The 3 existing posts use Jekyll's Liquid `{% highlight LANG %}…{% endhighlight
   console.log(`\nDone. ${files.length} post files written.`);
   ```
 
-- [ ] **Step 3: Run the script**
+- [x] **Step 3: Run the script**
 
   ```bash
   mkdir -p scripts
@@ -1515,12 +1515,12 @@ The 3 existing posts use Jekyll's Liquid `{% highlight LANG %}…{% endhighlight
   ```
   Expected: prints 3 lines, one per post, then `Done. 3 post files written.`
 
-- [ ] **Step 4: Spot-check the converted content**
+- [x] **Step 4: Spot-check the converted content**
 
   Run: `cat src/content/posts/2015-07-29-first-python-flask-application.md`
   Expected: new frontmatter (title, description, date, tags), Liquid `{% highlight python %}` blocks replaced with fenced ```` ```python ```` blocks.
 
-- [ ] **Step 5: Patch the two theme-demo posts that have an empty `description`**
+- [x] **Step 5: Patch the two theme-demo posts that have an empty `description`**
 
   The `2016-01-23-indigo-jekyll-theme` and `2016-02-24-markdown-common-elements` posts had descriptions in the original; the converter should have picked them up. If `description` ended up empty in either generated file, manually set:
   - `indigo-jekyll-theme`: `"A simple and minimalist Jekyll theme — example post from the original Indigo template."`
@@ -1528,23 +1528,23 @@ The 3 existing posts use Jekyll's Liquid `{% highlight LANG %}…{% endhighlight
 
   Note these were originally `author: johndoe` (theme placeholder content). We're keeping them as-is per Jay's call; he can prune in place after launch.
 
-- [ ] **Step 6: Verify build**
+- [x] **Step 6: Verify build**
 
   Run: `npm run build`
   Expected: `Complete!`. `dist/posts/<slug>/index.html` exists for all 3 posts. `dist/rss.xml` contains 3 `<item>` entries.
 
-- [ ] **Step 7: Verify in dev server**
+- [x] **Step 7: Verify in dev server**
 
   Run: `npm run dev`
   Open `http://localhost:4321`. Expected: the "Writing" section now shows 3 entries, newest first. Click each — body renders correctly, code blocks have syntax highlighting.
 
-- [ ] **Step 8: Delete the migration script**
+- [x] **Step 8: Delete the migration script**
 
   ```bash
   rm scripts/migrate-posts.mjs
   ```
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
   ```bash
   git add src/content/posts/
@@ -1562,12 +1562,12 @@ Convert `_data/projects.json` (14 hackathon entries) into 14 individual Markdown
 - Create: `src/content/projects/<slug>.md` × 14
 - Delete after run: `scripts/migrate-projects.mjs`
 
-- [ ] **Step 1: Inspect the source data**
+- [x] **Step 1: Inspect the source data**
 
   Run: `cat _data/projects.json | head -25`
   Confirm shape: top-level object has `hackathons.content[]`, each entry has `name`, `link`, and `hackathon: { name, date: { month, year } }`.
 
-- [ ] **Step 2: Create `scripts/migrate-projects.mjs`**
+- [x] **Step 2: Create `scripts/migrate-projects.mjs`**
 
   ```js
   // One-shot: convert _data/projects.json → src/content/projects/<slug>.md
@@ -1637,7 +1637,7 @@ Convert `_data/projects.json` (14 hackathon entries) into 14 individual Markdown
   console.log(`\nDone. ${written} project files written.`);
   ```
 
-- [ ] **Step 3: Run the script**
+- [x] **Step 3: Run the script**
 
   ```bash
   mkdir -p scripts
@@ -1645,29 +1645,29 @@ Convert `_data/projects.json` (14 hackathon entries) into 14 individual Markdown
   ```
   Expected: prints 14 lines, one per project, then `Done. 14 project files written.` (Note: two entries — "Bump It Up" and "Google Notepad Extension" — share a GitHub URL; both files are still created with deduped slugs.)
 
-- [ ] **Step 4: Spot-check one of the generated files**
+- [x] **Step 4: Spot-check one of the generated files**
 
   Run: `cat src/content/projects/$(ls src/content/projects | head -1)`
   Expected: valid frontmatter with `name`, `blurb` ("Built at …"), `year`, `status: archived`, `links`, `hasPage: false`.
 
-- [ ] **Step 5: Verify build**
+- [x] **Step 5: Verify build**
 
   Run: `npm run build`
   Expected: `Complete!`. No `dist/projects/<slug>/` routes (all `hasPage: false`).
 
-- [ ] **Step 6: Verify in dev server**
+- [x] **Step 6: Verify in dev server**
 
   Run: `npm run dev`
   Open `http://localhost:4321`. Expected: "Projects" section now lists 14 entries, reverse-chronological by year. Each name links out to the original `link` URL.
 
-- [ ] **Step 7: Delete the migration script**
+- [x] **Step 7: Delete the migration script**
 
   ```bash
   rm scripts/migrate-projects.mjs
   rmdir scripts 2>/dev/null || true
   ```
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
   ```bash
   git add src/content/projects/
@@ -1685,7 +1685,7 @@ Move site-root files into `public/` so Astro emits them at the site root unchang
 - Move: `assets/JayRavaliya_Resume.pdf` → `public/JayRavaliya_Resume.pdf`
 - Move: `assets/images/<files referenced by ported posts>` → `public/assets/images/<same names>`
 
-- [ ] **Step 1: Move CNAME**
+- [x] **Step 1: Move CNAME**
 
   ```bash
   git mv CNAME public/CNAME
@@ -1693,13 +1693,13 @@ Move site-root files into `public/` so Astro emits them at the site root unchang
   ```
   Expected: `jayravaliya.com`.
 
-- [ ] **Step 2: Move resume PDF**
+- [x] **Step 2: Move resume PDF**
 
   ```bash
   git mv assets/JayRavaliya_Resume.pdf public/JayRavaliya_Resume.pdf
   ```
 
-- [ ] **Step 3: Identify which images the ported posts reference**
+- [x] **Step 3: Identify which images the ported posts reference**
 
   Run:
   ```bash
@@ -1707,7 +1707,7 @@ Move site-root files into `public/` so Astro emits them at the site root unchang
   ```
   This lists every image path the new posts reference. Note the filenames.
 
-- [ ] **Step 4: Move just those images to `public/assets/images/`**
+- [x] **Step 4: Move just those images to `public/assets/images/`**
 
   ```bash
   mkdir -p public/assets/images
@@ -1718,18 +1718,18 @@ Move site-root files into `public/` so Astro emits them at the site root unchang
   ```
   (If a referenced file isn't in `assets/images/`, fix the post's reference instead.)
 
-- [ ] **Step 5: Verify build**
+- [x] **Step 5: Verify build**
 
   Run: `npm run build`
   Then: `ls dist`
   Expected: `CNAME` and `JayRavaliya_Resume.pdf` present at the root of `dist/`. `dist/assets/images/` contains the moved images.
 
-- [ ] **Step 6: Spot-check that a post page references the image correctly**
+- [x] **Step 6: Spot-check that a post page references the image correctly**
 
   Run: `npm run dev`
   Open a post that uses an image. Confirm the image loads.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
   ```bash
   git add public/
@@ -1750,12 +1750,12 @@ Now that everything has been ported, delete the Jekyll-era files.
 - Delete: `.jekyll-cache/`, `_site/` (if present)
 - Delete: any leftover `assets/` (Jekyll-only, after Task 15 moved keepers to `public/`)
 
-- [ ] **Step 1: Inspect what's about to be deleted**
+- [x] **Step 1: Inspect what's about to be deleted**
 
   Run: `ls -la`
   Make a mental list of files to remove. Cross-check against the file list above.
 
-- [ ] **Step 2: Delete Jekyll source dirs and files**
+- [x] **Step 2: Delete Jekyll source dirs and files**
 
   ```bash
   git rm -rf _config.yml _layouts _includes _sass _data _posts _legacy_package.json
@@ -1763,29 +1763,29 @@ Now that everything has been ported, delete the Jekyll-era files.
   git rm -rf index.html about.md projects.html tags.html blog
   ```
 
-- [ ] **Step 3: Delete `assets/` if anything remains**
+- [x] **Step 3: Delete `assets/` if anything remains**
 
   ```bash
   ls assets 2>/dev/null && git rm -rf assets || true
   ```
 
-- [ ] **Step 4: Delete build/cache dirs (untracked)**
+- [x] **Step 4: Delete build/cache dirs (untracked)**
 
   ```bash
   rm -rf .jekyll-cache _site
   ```
 
-- [ ] **Step 5: Verify the repo is now Astro-only**
+- [x] **Step 5: Verify the repo is now Astro-only**
 
   Run: `ls -la`
   Expected files at root: `.git`, `.github` (added in next task), `.gitignore`, `.claude`, `astro.config.mjs`, `docs`, `node_modules`, `package-lock.json`, `package.json`, `public`, `README.md`, `src`, `tsconfig.json`. No Jekyll files.
 
-- [ ] **Step 6: Verify build still passes**
+- [x] **Step 6: Verify build still passes**
 
   Run: `npm run build`
   Expected: `Complete!`.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
   ```bash
   git commit -m "Delete Jekyll scaffolding now that Astro site is in place"
@@ -1800,7 +1800,7 @@ Build on push to `main`, publish via `actions/deploy-pages`.
 **Files:**
 - Create: `.github/workflows/deploy.yml`
 
-- [ ] **Step 1: Create `.github/workflows/deploy.yml`**
+- [x] **Step 1: Create `.github/workflows/deploy.yml`**
 
   ```yaml
   name: Deploy site to GitHub Pages
@@ -1855,11 +1855,11 @@ Build on push to `main`, publish via `actions/deploy-pages`.
           uses: actions/deploy-pages@v4
   ```
 
-- [ ] **Step 2: One-time repo settings change**
+- [x] **Step 2: One-time repo settings change**
 
   Open the repo's Pages settings on GitHub (Settings → Pages). Change **Source** from "Deploy from a branch" to **"GitHub Actions"**. (This step is manual — the engineer needs the user to do it, or the user does it themselves before the first deploy.)
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
   ```bash
   git add .github/workflows/deploy.yml
