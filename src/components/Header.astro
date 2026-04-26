@@ -1,0 +1,32 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+---
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="wordmark">Jay Ravaliya</a>
+    <ThemeToggle />
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .wordmark {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .wordmark:hover { color: var(--accent); }
+</style>

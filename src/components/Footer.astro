@@ -1,0 +1,26 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© {year} Jay Ravaliya</span>
+    <span class="muted"> · Built with <a href="https://astro.build">Astro</a></span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 64px;
+  }
+  .footer-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .footer-inner a { color: var(--text-muted); }
+  .footer-inner a:hover { color: var(--accent); }
+</style>
