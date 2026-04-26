@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import NowBlock from '../components/NowBlock.astro';
+import WritingList from '../components/WritingList.astro';
+import ProjectList from '../components/ProjectList.astro';
+import { SITE } from '../site';
+---
+<BaseLayout title={SITE.name} description={SITE.tagline}>
+  <Hero />
+  <NowBlock />
+  <WritingList />
+  <ProjectList />
+</BaseLayout>

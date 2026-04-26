@@ -1,0 +1,53 @@
+/* Used inside post and project bodies. */
+
+.prose {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.prose p { margin: 1em 0; }
+.prose h2 { margin-top: 2em; }
+.prose h3 { margin-top: 1.5em; }
+
+.prose blockquote {
+  margin: 1.25em 0;
+  padding: 0.25em 1em;
+  border-left: 3px solid var(--border);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: color-mix(in srgb, var(--border) 50%, transparent);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+.prose pre {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  overflow-x: auto;
+  padding: 14px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  line-height: 1.5;
+}
+.prose pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 1.25em 0;
+}
+
+.prose ul, .prose ol { padding-left: 1.5em; }
+.prose li { margin: 0.35em 0; }
+
+.prose a { color: var(--accent); }

@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+
+const all = await getCollection('projects');
+// Reverse-chronological by year, ties broken alphabetically by name.
+const projects = all.sort((a, b) => {
+  if (b.data.year !== a.data.year) return b.data.year - a.data.year;
+  return a.data.name.localeCompare(b.data.name);
+});
+
+const targetUrl = (p: (typeof projects)[number]) =>
+  p.data.hasPage
+    ? `/projects/${p.id}/`
+    : p.data.links[0]?.url ?? '#';
+---
+{projects.length > 0 && (
+  <section class="projects">
+    <h2>Projects</h2>
+    <ul class="project-list">
+      {projects.map((p) => (
+        <li class="project-row">
+          <a class="project-name" href={targetUrl(p)}>
+            {p.data.name}
+          </a>
+          <span class="project-year">{p.data.year}</span>
+          {p.data.blurb && (
+            <p class="project-blurb">{p.data.blurb} <span class="arrow">→</span></p>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .projects { margin: 48px 0; }
+  .projects h2 {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--label);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+    margin: 0 0 16px;
+  }
+  .project-list { list-style: none; padding: 0; margin: 0; }
+  .project-row {
+    padding: 10px 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+  }
+  .project-row:last-child { border-bottom: none; }
+  .project-name {
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .project-name:hover { color: var(--accent); }
+  .project-year {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--label);
+    margin-left: 8px;
+  }
+  .project-blurb {
+    margin: 4px 0 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .arrow { color: var(--label); margin-left: 4px; }
+</style>

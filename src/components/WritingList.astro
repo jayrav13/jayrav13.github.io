@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+
+const all = await getCollection('posts', ({ data }) => !data.draft);
+const posts = all.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+---
+{posts.length > 0 && (
+  <section class="writing">
+    <h2>Writing</h2>
+    <ul class="post-list">
+      {posts.map((p) => (
+        <li class="post-row">
+          <a class="post-title" href={`/posts/${p.id}/`}>
+            {p.data.title}
+          </a>
+          <span class="post-date">{fmt(p.data.date)}</span>
+          {p.data.description && (
+            <p class="post-desc">{p.data.description}</p>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .writing { margin: 48px 0; }
+  .writing h2 {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--label);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+    margin: 0 0 16px;
+  }
+  .post-list { list-style: none; padding: 0; margin: 0; }
+  .post-row {
+    padding: 10px 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+  }
+  .post-row:last-child { border-bottom: none; }
+  .post-title {
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .post-title:hover { color: var(--accent); }
+  .post-date {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--label);
+    margin-left: 8px;
+  }
+  .post-desc {
+    margin: 4px 0 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+</style>

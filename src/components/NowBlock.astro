@@ -1,0 +1,30 @@
+---
+// Renders src/content/now.md if it exists. Uses the `now` content collection
+// defined in src/content.config.ts — empty when the file is absent.
+import { getCollection, render } from 'astro:content';
+
+const entries = await getCollection('now');
+const entry = entries[0];
+const Content = entry ? (await render(entry)).Content : null;
+---
+{Content && (
+  <section class="now">
+    <span class="label">Now</span>
+    <div class="now-body">
+      <Content />
+    </div>
+  </section>
+)}
+
+<style>
+  .now {
+    border-left: 3px solid var(--label);
+    padding: 8px 16px;
+    margin: 24px 0 32px;
+    background: color-mix(in srgb, var(--border) 30%, transparent);
+  }
+  .now .label { display: block; margin-bottom: 4px; }
+  .now-body :global(p) { margin: 0.4em 0; font-size: 0.95rem; }
+  .now-body :global(p:first-child) { margin-top: 0; }
+  .now-body :global(p:last-child) { margin-bottom: 0; }
+</style>
