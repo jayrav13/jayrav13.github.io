@@ -4,11 +4,9 @@ import Hero from '../components/Hero.astro';
 import NowBlock from '../components/NowBlock.astro';
 import WritingList from '../components/WritingList.astro';
 import ProjectList from '../components/ProjectList.astro';
+import { SITE } from '../site';
 ---
-<BaseLayout
-  title="Jay Ravaliya"
-  description="Software engineer. I build with AI and write about it."
->
+<BaseLayout title={SITE.name} description={SITE.tagline}>
   <Hero />
   <NowBlock />
   <WritingList />

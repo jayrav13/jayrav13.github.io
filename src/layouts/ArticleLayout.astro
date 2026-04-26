@@ -19,7 +19,7 @@ const fmt = (d: Date) =>
     <header class="article-header">
       <h1>{title}</h1>
       <p class="article-meta">
-        {date && <span>{fmt(date)}</span>}
+        {date && <time datetime={date.toISOString()}>{fmt(date)}</time>}
         {meta && <><span class="sep"> · </span><span>{meta}</span></>}
         {tags && tags.length > 0 && (
           <>

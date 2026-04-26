@@ -1,6 +1,7 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
+import { SITE } from '../site';
 
 export async function GET(context: APIContext) {
   const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
@@ -8,8 +9,8 @@ export async function GET(context: APIContext) {
   );
 
   return rss({
-    title: 'Jay Ravaliya',
-    description: 'Software engineer. I build with AI and write about it.',
+    title: SITE.name,
+    description: SITE.tagline,
     site: context.site!,
     items: posts.map((p) => ({
       title: p.data.title,

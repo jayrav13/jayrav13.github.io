@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
-const statusLabel: Record<string, string> = {
+const statusLabel: Record<'live' | 'wip' | 'archived', string> = {
   live: 'Live',
   wip: 'Work in progress',
   archived: 'Archived',
