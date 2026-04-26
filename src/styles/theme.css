@@ -1,0 +1,46 @@
+/* Editorial palette — warm cream paper / warm off-black.
+   Colors set on :root and overridden under prefers-color-scheme: dark
+   and the [data-theme] attribute when the user toggles. */
+
+:root {
+  --bg: #f7f3ec;
+  --text: #1a1a1a;
+  --text-muted: #6b5d48;
+  --label: #998870;
+  --border: #d8cfc0;
+  --accent: #a14a16;
+
+  --font-serif: 'Source Serif 4 Variable', 'Iowan Old Style', 'Palatino', Georgia, serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15130f;
+    --text: #ebe6db;
+    --text-muted: #c9beab;
+    --label: #a8957a;
+    --border: #2c2820;
+    --accent: #e0a060;
+  }
+}
+
+/* Manual override via toggle */
+:root[data-theme='light'] {
+  --bg: #f7f3ec;
+  --text: #1a1a1a;
+  --text-muted: #6b5d48;
+  --label: #998870;
+  --border: #d8cfc0;
+  --accent: #a14a16;
+}
+
+:root[data-theme='dark'] {
+  --bg: #15130f;
+  --text: #ebe6db;
+  --text-muted: #c9beab;
+  --label: #a8957a;
+  --border: #2c2820;
+  --accent: #e0a060;
+}
