@@ -17,6 +17,7 @@ This list is the single source of truth — none of the sibling repos carry thei
 | Sibling repo | Owns path | Notes |
 |---|---|---|
 | https://github.com/jayrav13/ruby-pure-greeks | `/ruby-pure-greeks/*` | Docs site for the `pure_greeks` Ruby gem. Source is `main` / `/docs`, Jekyll cayman theme. |
+| https://github.com/jayrav13/tenor-tui | `/tenor-tui/*` | Docs site for the `tenor-tui` Python package. Source is `gh-pages` branch, MkDocs Material, deployed by `.github/workflows/docs.yml` on every merge to `main`. |
 
 ## When to update this list
 
