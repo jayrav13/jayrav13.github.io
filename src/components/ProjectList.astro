@@ -2,33 +2,61 @@
 import { getCollection } from 'astro:content';
 
 const all = await getCollection('projects');
-// Reverse-chronological by year, ties broken alphabetically by name.
-const projects = all.sort((a, b) => {
+const byYearThenName = (
+  a: (typeof all)[number],
+  b: (typeof all)[number],
+) => {
   if (b.data.year !== a.data.year) return b.data.year - a.data.year;
   return a.data.name.localeCompare(b.data.name);
-});
+};
+const active = all
+  .filter((p) => p.data.status !== 'archived')
+  .sort(byYearThenName);
+const legacy = all
+  .filter((p) => p.data.status === 'archived')
+  .sort(byYearThenName);
 
-const targetUrl = (p: (typeof projects)[number]) =>
+const targetUrl = (p: (typeof all)[number]) =>
   p.data.hasPage
     ? `/projects/${p.id}/`
     : p.data.links[0]?.url ?? '#';
 ---
-{projects.length > 0 && (
+{(active.length > 0 || legacy.length > 0) && (
   <section class="projects">
     <h2>Projects</h2>
-    <ul class="project-list">
-      {projects.map((p) => (
-        <li class="project-row">
-          <a class="project-name" href={targetUrl(p)}>
-            {p.data.name}
-          </a>
-          <span class="project-year">{p.data.year}</span>
-          {p.data.blurb && (
-            <p class="project-blurb">{p.data.blurb} <span class="arrow">→</span></p>
-          )}
-        </li>
-      ))}
-    </ul>
+    {active.length > 0 && (
+      <ul class="project-list">
+        {active.map((p) => (
+          <li class="project-row">
+            <a class="project-name" href={targetUrl(p)}>
+              {p.data.name}
+            </a>
+            <span class="project-year">{p.data.year}</span>
+            {p.data.blurb && (
+              <p class="project-blurb">{p.data.blurb} <span class="arrow">→</span></p>
+            )}
+          </li>
+        ))}
+      </ul>
+    )}
+    {legacy.length > 0 && (
+      <>
+        <h3 class="legacy-heading">Legacy</h3>
+        <ul class="project-list">
+          {legacy.map((p) => (
+            <li class="project-row">
+              <a class="project-name" href={targetUrl(p)}>
+                {p.data.name}
+              </a>
+              <span class="project-year">{p.data.year}</span>
+              {p.data.blurb && (
+                <p class="project-blurb">{p.data.blurb} <span class="arrow">→</span></p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
   </section>
 )}
 
@@ -44,6 +72,15 @@ const targetUrl = (p: (typeof projects)[number]) =>
     border-bottom: 1px solid var(--border);
     padding-bottom: 6px;
     margin: 0 0 16px;
+  }
+  .legacy-heading {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--label);
+    margin: 28px 0 8px;
   }
   .project-list { list-style: none; padding: 0; margin: 0; }
   .project-row {
